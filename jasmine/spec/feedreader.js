@@ -34,7 +34,20 @@ $(function() {
          * and that the URL is not empty.
          */
         it('have URLs', function() {
-            expect(allFeeds.url).not.toBe(0);
+            allFeeds.forEach(function(feed) {
+                // Test that url is defined
+                expect(feed.url).toBeDefined();
+
+                // Test that url is a string
+                expect(feed.url).toEqual(jasmine.any(String));
+
+                // Test that url is not empty
+                expect(feed.url.length).toBeGreaterThan(0);
+
+                // Test that url is a url
+                // Regexp from https://www.regextester.com/93652
+                expect(feed.url).toMatch(/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm);
+            });
         });
 
         /* TODO: Write a test that loops through each feed
@@ -42,7 +55,13 @@ $(function() {
          * and that the name is not empty.
          */
         it('have a name', function() {
-            expect(allFeeds.name).not.toBe(0);
+            allFeeds.forEach(function(feed) {
+                // Test that name is defined
+                expect(feed.name).toBeDefined();
+
+                // Test that name is not empty
+                expect(feed.name.length).toBeGreaterThan(0);
+            });
         });
     });
 
@@ -64,7 +83,11 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-
+        //  it('changes visibility when clicked', function() {
+        //     let body = document.body;
+        //     expect(body.onclick).toHaveClass('');
+        //     expect(body).toHaveClass('menu-hidden');
+        // })
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
