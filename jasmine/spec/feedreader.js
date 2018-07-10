@@ -102,11 +102,12 @@ $(function() {
             menuIcon.dispatchEvent(event);
             expect(body).toHaveClass('menu-hidden');
 
-        })
-
+        });
+    });
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
+describe('Initial Entries', function() {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
