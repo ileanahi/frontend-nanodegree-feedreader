@@ -68,14 +68,15 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
-
+        const body = document.body;
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
         it('is hidden by default', function() {
-            expect(document.body).toHaveClass('menu-hidden');
+            // Menu is hidden when body has class menu-hidden
+            expect(body).toHaveClass('menu-hidden');
         });
 
          /* TODO: Write a test that ensures the menu changes
@@ -83,11 +84,26 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-        //  it('changes visibility when clicked', function() {
-        //     let body = document.body;
-        //     expect(body.onclick).toHaveClass('');
-        //     expect(body).toHaveClass('menu-hidden');
-        // })
+        it('changes visibility on click', function() {
+            const menuIcon = document.querySelector('.menu-icon-link');
+
+            // Make click event
+            const event = new Event('click');
+
+            // Listen for click event on Menu hamburger
+            menuIcon.addEventListener('click', function (e) {}, false);
+            // Click menu
+            menuIcon.dispatchEvent(event);
+
+            // Menu should show when clicked
+            expect(body).not.toHaveClass('menu-hidden');
+
+            // Menu should be hidden when menu hamburger is clicked again
+            menuIcon.dispatchEvent(event);
+            expect(body).toHaveClass('menu-hidden');
+
+        })
+
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
