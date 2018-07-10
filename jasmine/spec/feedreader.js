@@ -109,7 +109,7 @@ $(function() {
     /* TODO: Write a new test suite named "Initial Entries" */
 describe('Initial Entries', function() {
     beforeEach(function(done) {
-        loadFeed(function(){
+        loadFeed(0, function(){
         done();
         });
     });
@@ -119,6 +119,12 @@ describe('Initial Entries', function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    it('exist in the feed container', function() {
+            let feed = document.querySelector('.feed');
+            let entry = document.querySelector('.entry');
+            expect(feed.contains(entry)).toBe(true);
+    });
+});
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
@@ -126,6 +132,6 @@ describe('Initial Entries', function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-    });
+
 
 });
