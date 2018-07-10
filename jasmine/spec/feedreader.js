@@ -39,6 +39,9 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('have a name', function() {
+            expect(allFeeds.name).not.toBe(0);
+        });
     });
 
 
