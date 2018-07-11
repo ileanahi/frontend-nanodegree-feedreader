@@ -90,19 +90,14 @@ $(function() {
         it('changes visibility on click', function() {
             const menuIcon = document.querySelector('.menu-icon-link');
 
-            // Make click event
-            const event = new Event('click');
-
-            // Listen for click event on Menu hamburger
-            menuIcon.addEventListener('click', function (e) {}, false);
             // Click menu
-            menuIcon.dispatchEvent(event);
+            menuIcon.click();
 
             // Menu should show when clicked
             expect(body).not.toHaveClass('menu-hidden');
 
             // Menu should be hidden when menu hamburger is clicked again
-            menuIcon.dispatchEvent(event);
+            menuIcon.click();
             expect(body).toHaveClass('menu-hidden');
 
         });
