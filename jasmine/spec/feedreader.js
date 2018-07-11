@@ -142,7 +142,7 @@ $(function() {
             // Load first feed
             loadFeed(0, function() {
 
-                feed = document.querySelectorAll('.feed');
+                feed = document.querySelectorAll('.feed')[0].innerHTML;
                 // Load second feed
                 loadFeed(1, done);
             });
