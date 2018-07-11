@@ -142,15 +142,15 @@ $(function() {
             // Load first feed
             loadFeed(0, function() {
 
-                feed = document.querySelectorAll('.feed');
+                feed = document.querySelector('.feed').innerHTML;
                 // Load second feed
                 loadFeed(1, done);
             });
         });
 
         // Content changes when a new feed is loaded
-        it('change with new content', function() {
-            newFeed = document.querySelectorAll('.feed');
+        it('changes with new content', function() {
+            newFeed = document.querySelector('.feed').innerHTML;
 
             // Feeds shouldn't have the same content
             expect(feed).not.toBe(newFeed);
